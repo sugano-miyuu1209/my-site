@@ -1,0 +1,475 @@
+/* =========================
+   CSS RESET
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;}
+
+html, body {
+  margin: 0;
+  padding: 0;}
+
+h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;}
+
+ul {
+  list-style: none;}
+
+img {
+  max-width: 100%;
+  display: block;}
+
+a {
+  text-decoration: none;
+  color: inherit;}
+
+/* =========================
+   BASE
+========================= */
+body {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  line-height: 1.8;
+  color: #333;
+  background: #f5f3ed;}
+
+/* =========================
+   ヘッダー
+========================= */
+.header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #3e4a3c;
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;}
+
+.header-inner {
+  margin: 0 auto;
+  padding: 8px 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;}
+
+.header-logo img {
+  height: 45px;}
+
+.header-nav ul {
+  display: flex;
+  gap: 30px;}
+
+.header-nav a {
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: #fff;}
+
+/* =========================
+   メイン
+========================= */
+main {
+  padding-top: 0;}
+
+/* =========================
+   INTRO
+========================= */
+.intro {
+  background: #f0eee7;
+  padding: 100px 20px;
+  text-align: center;}
+
+.intro p {
+  font-size: 1.2rem;
+  line-height: 2;}
+
+.intro .main-content {
+  max-width: 780px;              /* 横幅を絞って上品に */
+  margin: 0 auto;
+}
+
+.section-main {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 60px;
+  color: #3e4a3c;
+}
+
+.section-main::after {
+  content: "";
+  display: block;
+  width: 1000px;
+  height: 1.4px;
+  background: #3e4a3c;
+  margin: 20px auto 0;
+  opacity: 0.6;
+}
+
+/* =========================
+   IMAGE SECTIONS
+========================= */
+.section-image {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+position: relative;}
+
+.section-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+display: block;}
+
+.intro {
+  background: #f3f2ec;          /* 真っ白をやめる */
+  padding: 60px 20px 80px;      /* 上下を詰める */
+  text-align: center;
+  position: relative;
+}
+
+@keyframes fvFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FV全体 */
+#section-fv {
+  position: relative;
+   animation: fvFadeIn 2s ease forwards;
+   background-color: #f5f3ed;
+}
+
+/* ① 写真全体を暗くする */
+#section-fv::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); /* ← 今の雰囲気に近い暗さ */
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ② 下だけ溶かす */
+#section-fv::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 80px; /* ← 少し長めが自然 */
+  z-index: 2;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.15) 25%,   /* 影を残す */
+    rgba(245, 243, 237, 0.3) 55%,  /* 写真の色を残す */
+    rgba(245, 243, 237, 0.75) 80%,
+    rgba(245, 243, 237, 1) 100%
+  );
+}
+ポイント
+
+/* 写真 */
+#section-fv .image-scroll {
+  position: relative;
+  z-index: 0;
+}
+
+/* ロゴは最前面 */
+#section-fv .fv-logo {
+  position: absolute;
+  z-index: 2;
+}
+
+
+/* =========================
+  アクセス
+========================= */
+
+.section-access {
+  background: #f0eee7; /* 今の色のままでOK */
+  padding: 80px 40px;
+}
+
+.section-access .access-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 120px;
+}
+
+.access-info {
+  flex: 1;
+  color: #3e4a3c;
+    display: flex;
+  flex-direction: column;
+  gap: 22px;       /* 電話と住所の間隔 */
+  max-width: 420px;
+  text-align: left;
+ 
+}
+
+.section-access .tel {
+  display: block;
+}
+
+.section-access .tel {
+  margin-bottom: 24px;
+}
+
+.section-access .label {
+  font-size: 1.5rem;
+}
+
+.section-access .value {
+  font-size: 1.3rem;     /* ← ここを好みで調整 */
+  letter-spacing: 0.06em;
+
+}
+
+.section-access .map {
+  flex-shrink: 0;
+}
+
+.section-access .map img {
+  width: 260px;   /* %じゃなくpxで */
+  height: auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 60px;
+  color: #3e4a3c;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 1000px;
+  height: 1px;
+  background: #3e4a3c;
+  margin: 20px auto 0;
+  opacity: 0.6;
+}
+
+/* =========================
+   フッター
+========================= */
+.footer {
+  background: #3e4a3c;
+  color: #fff;
+  padding: 15px 15px;
+  text-align: center;}
+
+.footer-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;}
+
+.footer-nav a {
+  font-size: 1.1rem;}
+
+.footer-logo img {
+  height: 53px;
+  margin: 0 auto 20px;}
+
+.footer p {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  text-align: right;}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+  .header-nav ul {
+    gap: 15px;}
+
+  .intro {
+    padding: 60px 20px;}
+
+  .map {
+    width: 100%;
+  }}
+
+.image-text h2 {
+  font-size: 1.6rem;
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
+  font-weight: normal;}
+
+.image-text {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  color: #fff;
+  line-height: 2;
+  z-index: 10;
+
+max-width: 400px;
+min-height: 300px;
+
+  background: rgba(0,0,0,0.55);
+  padding: 40px 45px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#section-bath .image-text {
+  right: 40px;
+  left: auto;}
+
+  .fv {
+  position: relative;}
+
+.fv-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+opacity: 0;
+  animation: logoFadeIn 1.5s ease forwards;
+  animation-delay: 0.7s;}
+
+@keyframes logoFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 10;
+  }
+}
+
+.fv-logo img {
+  width: 200px;  
+  height: auto;}
+
+  .fv-box {
+  width: 200px; 
+  height: 8px;       
+  background-color: #ccc;
+  margin: 0px auto 0; 
+}
+
+
+.image-scroll {
+  width: 100%;
+  overflow-x: auto; 
+  overflow-y: hidden;
+  cursor: grab;
+  scrollbar-width: none;  
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  position: relative;
+}
+.image-scroll::-webkit-scrollbar {
+  display: none;         
+}
+
+.image-scroll.is-dragging {
+  cursor: grabbing;
+}
+
+.scroll-track {
+  display: flex;
+}
+
+.image-section {
+  position: relative;
+}
+
+.scroll-track img {
+  width: 1920px;  
+  height: auto;
+  flex-shrink: 0; 
+  scroll-snap-align: start;
+}
+
+.image-scroll:active {
+  cursor: grabbing;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================
+   FLOW LINE（動く白い線）
+========================= */
+
+.flow-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* 実際に動く線 */
+.flow-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.9) 50%,
+    rgba(255,255,255,0) 100%
+  );
+
+  animation: flowLineMove 3.3s linear infinite;
+}
+
+/* アニメーション */
+@keyframes flowLineMove {
+  from {
+    left: -40%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+/* map全体をリンクとして扱う */
+.section-access .map a {
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* 画像の基本状態 */
+.section-access .map img {
+  display: block;
+  transition: 
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* hover時の反応（上品） */
+.section-access .map a:hover img {
+  opacity: 0.88;
+  transform: scale(1.015);
+  box-shadow: none;
+}
